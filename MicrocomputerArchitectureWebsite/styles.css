@@ -54,6 +54,12 @@ header nav ul li a:hover {
     text-align: center;
 }
 
+.hero :hover{
+    background: content-box radial-gradient(skyblue, crimson);
+}
+
+
+
 .hero h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
@@ -71,6 +77,7 @@ h2 {
 
 .component, .application {
     margin-bottom: 20px;
+    padding: 1em;
 }
 
 /* Grid for Applications */
@@ -80,6 +87,10 @@ h2 {
     gap: 20px;
 }
 
+.grid :hover {
+    background-color: #ffde59;
+}
+
 /* Footer */
 footer {
     background: #333;
@@ -87,4 +98,29 @@ footer {
     text-align: center;
     padding: 10px;
     font-size: 0.9em;
+}
+
+.card {
+    width: 190px;
+    height: 254px;
+    background-image: linear-gradient(163deg, #1a73e8 0%, #c9c9c9 100%);
+    border-radius: 20px;
+    transition: all .3s;
+    margin: 2em;
+   }
+
+.card2 {
+    width: 190px;
+    height: 254px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    transition: all .2s;
+}
+.card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(34, 34, 34, 0.3);
+   }
+
+.card2:hover{
+    border-radius: 15px;
+    transform: scale(0.90);
 }
