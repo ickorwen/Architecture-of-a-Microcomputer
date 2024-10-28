@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
@@ -47,7 +48,7 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background: url('microcomputer-banner.jpg') no-repeat center center/cover;
+    background: content-box radial-gradient(crimson, skyblue);
     color: white;
     padding: 100px 20px;
     text-align: center;
