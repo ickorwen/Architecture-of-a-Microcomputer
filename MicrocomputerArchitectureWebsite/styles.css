@@ -120,5 +120,14 @@ footer {
 
 .card2:hover{
     border-radius: 15px;
-    transform: scale(0.90);
+    transform: scale(0.90) translate(90px 50% 12em);
+}
+
+.imagezoom{
+    transition: all 1s;
+    border-radius: 3em;
+}
+
+.imagezoom:hover {
+    transform: scale(2.0);
 }
