@@ -47,20 +47,18 @@ header nav ul li a:hover {
 }
 
 /* Hero Section */
-.hero {
+.home {
     background: content-box radial-gradient(crimson, skyblue);
     color: white;
     padding: 100px 20px;
     text-align: center;
 }
 
-.hero :hover{
+.home :hover{
     background: content-box radial-gradient(skyblue, crimson);
 }
 
-
-
-.hero h1 {
+.home h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
 }
