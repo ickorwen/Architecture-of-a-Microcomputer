@@ -27,6 +27,15 @@ header .logo {
     font-weight: bold;
 }
 
+header .logo:any-link {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: normal;
+    color: white;
+    text-decoration: none;
+
+}
+
 header nav ul {
     list-style: none;
     display: flex;
@@ -83,6 +92,35 @@ h2 {
     margin-bottom: 20px;
     padding: 1em;
 }
+
+/* Basic styling for tooltip container */
+.tooltip {
+    position: relative; /* Establishes a relative positioning context for the overlay */
+    display: inline-block;
+}
+
+/* Definition overlay styling */
+#definition {
+    display: none;
+    position: absolute;
+    top: 100%; /* Positions the overlay just below the word */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: black;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    z-index: 100; /* Ensures overlay appears on top of surrounding elements */
+}
+
+/* Show the definition when hovering over the tooltip container */
+.tooltip:hover #definition {
+    display: block;
+}
+
 
 /* Grid for Applications */
 .grid {
