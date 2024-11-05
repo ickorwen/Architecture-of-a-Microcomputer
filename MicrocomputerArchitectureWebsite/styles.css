@@ -10,12 +10,13 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    background: rgb(30, 73, 57);
 }
 
 /* Header */
 header {
-    background: #1a73e8;
-    color: white;
+    background: #54575c;
+    color: rgb(206, 206, 206);
     padding: 10px 20px;
     display: flex;
     align-items: center;
@@ -56,27 +57,16 @@ header nav ul li a:hover {
 }
 
 /* Home Section */
-.banner {
-    background: content-box radial-gradient(crimson, skyblue);
-    color: white;
-    padding: 100px 20px;
-    text-align: center;
+
+#phallus {
+    
+    width: 30%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 2s ease-in-out;
+    position: relative;
 }
 
-.banner :hover{
-    background: content-box radial-gradient(skyblue, crimson);
-}
-
-.banner h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.content {
-    display: flex;
-    justify-content:flex-start;
-    align-items:flex-start;
-}
 
 /* Sections */
 section {
@@ -88,37 +78,9 @@ h2 {
     margin-bottom: 15px;
 }
 
-.component, .application {
+.card-content, .grid-content {
     margin-bottom: 20px;
     padding: 1em;
-}
-
-/* Basic styling for tooltip container */
-.tooltip {
-    position: relative; /* Establishes a relative positioning context for the overlay */
-    display: inline-block;
-}
-
-/* Definition overlay styling */
-#definition {
-    display: none;
-    position: absolute;
-    top: 100%; /* Positions the overlay just below the word */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ffffff;
-    color: black;
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    width: 200px;
-    z-index: 100; /* Ensures overlay appears on top of surrounding elements */
-}
-
-/* Show the definition when hovering over the tooltip container */
-.tooltip:hover #definition {
-    display: block;
 }
 
 
