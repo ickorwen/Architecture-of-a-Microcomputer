@@ -155,8 +155,9 @@ footer {
     border-radius: 3em;
 }
 
-.imagezoom:hover {
+.imagezoom:active {
     transform: scale(2.0);
+    opacity: 10% ease;
 }
 
 .box-container {
@@ -197,4 +198,13 @@ footer {
 /* Hover effect on the blue box */
 .box-container:hover .back-box {
     transform: scale(1) translate(125%, -50%); /* Scale the red box to full size */
+}
+
+
+
+/*Unique to components*/
+
+.components-page {
+    background: repeat url(images/Binary.gif);
+    background-size: 60px;
 }
