@@ -15,9 +15,7 @@
         <div class="parallax-layer" id="tree_right_back"></div>
         <div class="parallax-layer" id="tree_right_front"></div>
         <div class="parallax-layer" id="desk"></div>
-        <div class="content">
-            <img class="imagezoom" src="images/HomepageMascotSprites/ComputyMouthOpen.png" id="phallus" alt="">
-        </div>
+        <div class="parallax-layer" id="phallus"></div>
     </div>
 
     <script>
@@ -26,6 +24,7 @@
         const treeLeftFront = document.getElementById('tree_left_front');
         const treeRightBack = document.getElementById('tree_right_back');
         const treeRightFront = document.getElementById('tree_right_front');
+        const phallus = document.getElementById('phallus');
 
         // Add mousemove event listener
         document.addEventListener('mousemove', (e) => {
@@ -37,6 +36,16 @@
             treeLeftFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
             treeRightBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
             treeRightFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+        });
+
+        phallus.addEventListener('click', () => {
+            // Add a zoom class to scale the element
+            phallus.classList.add('zoomed');
+
+            // Change the background image after zoom
+            setTimeout(() => {
+                phallus.style.backgroundImage = "url('images/ComputyNoScreen.png')";
+            }, 500); // Adjust delay to match transition duration
         });
     </script>
 

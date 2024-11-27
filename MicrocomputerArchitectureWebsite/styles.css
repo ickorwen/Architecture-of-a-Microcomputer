@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: Minecraftia;
     src: url(fonts/Minecraftia-Regular.ttf);
@@ -65,12 +67,6 @@ header nav ul li a:hover {
 }
 
 /* Home Section */
-#phallus {
-    height: 400%;
-    width: 400%;
-}
-
-
 
 /* Parallax Container */
 .parallax-container {
@@ -88,6 +84,16 @@ header nav ul li a:hover {
     background-size: cover; /* Make sure images cover the entire layer */
     background-position: center; /* Center the background image */
     transition: transform 0.1s ease-out; /* Smooth transitions for movement */
+}
+
+#phallus {
+    background-image: url(images/HomepageMascotSprites/ComputyMouthOpen.png);
+    z-index: 2;
+    transition: transform 2s ease, background-image 0s ease; /* Smooth zoom-in */
+}
+
+#phallus.zoomed {
+    transform: scale(5); /* Zoom effect */
 }
 
 #desk {
@@ -118,21 +124,12 @@ header nav ul li a:hover {
 
 .content {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering the content */
     color: white;
     text-align: center;
-    z-index: 1; /* Ensure content appears above parallax */
-}
-
-.imagezoom {
-    border-radius: 3em;
-    opacity: 1;
-    transition: all 2s ease;
-    cursor: pointer;
-}
-
-.imagezoom:active {
-    transform: scale(5.0);
-    opacity: 0.05;
+    z-index: 1; /* Ensure content appears above parallax layers */
 }
 
 /* Unique to components */
