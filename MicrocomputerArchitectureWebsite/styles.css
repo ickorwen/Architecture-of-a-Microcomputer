@@ -17,7 +17,8 @@ body {
     font-family: Minecraftia, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: rgb(30, 73, 57);
+    background: rgb(236, 204, 170);
+    height: 100vh;
 }
 
 /* Header */
@@ -70,10 +71,7 @@ header nav ul li a:hover {
     width: 30%;
     margin: auto;
     display: block;
-    height: 720px;
-    width: 1080px;
-    cursor: pointer;
-    transition: transform 2s ease-in-out;
+    height: auto;
     position: relative;
     border-radius: 10%;
 }
@@ -151,13 +149,15 @@ footer {
 }
 
 .imagezoom{
-    transition: all 1s;
     border-radius: 3em;
+    opacity: 1;
+    transition: all 2s ease;
+    cursor: pointer;
 }
 
 .imagezoom:active {
-    transform: scale(2.0);
-    opacity: 10% ease;
+    transform: scale(5.0);
+    opacity: 0.05;
 }
 
 .box-container {
