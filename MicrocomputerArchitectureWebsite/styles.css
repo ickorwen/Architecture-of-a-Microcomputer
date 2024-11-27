@@ -69,6 +69,16 @@ header nav ul li a:hover {
     width: 50vh;
 }
 
+.desk {
+    background-image: url(images/HomepageBackground/HomepageTableAndwindow.png);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    z-index: 1;
+}
+
 /* Parallax Container */
 .parallax-container {
     position: relative;
