@@ -19,7 +19,6 @@
             </ul>
         </nav>
         <div>
-            <audio id="background-audio" src="audio/20150917_Undertale OST： 006 - Uwa!! So Temperate♫.mp3" loop autoplay></audio>
             <img id="mute-button" src="images/Mute button/Sound On.png" alt="Mute Button">
         </div>
     </header>
@@ -61,6 +60,22 @@
             return img;
         });
     
+        // Preload audio for smooth playback
+        const preloadedAudio = new Audio('audio/20150917_Undertale OST： 006 - Uwa!! So Temperate♫.mp3');
+        preloadedAudio.loop = true; // Set the audio to loop
+        preloadedAudio.preload = 'auto'; // Preload the audio
+    
+        // Mute button functionality
+        muteButton.addEventListener('click', () => {
+            if (preloadedAudio.muted) {
+                preloadedAudio.muted = false; // Unmute the audio
+                muteButton.src = 'images/Mute button/Sound On.png'; // Change the mute button to "Sound On"
+            } else {
+                preloadedAudio.muted = true; // Mute the audio
+                muteButton.src = 'images/Mute button/Sound Off.png'; // Change the mute button to "Sound Off"
+            }
+        });
+    
         // Add mousemove event listener for parallax effect
         document.addEventListener('mousemove', (e) => {
             const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
@@ -72,14 +87,6 @@
             treeRightFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
         });
     
-        // Mute button toggle
-        muteButton.addEventListener('click', () => {
-            audio.muted = !audio.muted; // Toggle mute state
-            muteButton.src = audio.muted
-                ? 'images/Mute button/Sound Off.png' // Show sound off image
-                : 'images/Mute button/Sound On.png'; // Show sound on image
-        });
-    
         // Interval-based "blink" effect
         const intervalId = setInterval(() => {
             // Blink to alternate sprite
@@ -89,7 +96,7 @@
             setTimeout(() => {
                 phallus.style.backgroundImage = `url(${imageUrls[1]})`; // Revert back to the original preloaded image
             }, 150); // Short delay for blink (150ms)
-        }, Math.random() * (8000 - 3000) + 5000); // Random interval between 5-10 seconds
+        }, Math.random() * (10000 - 5000) + 5000); // Random interval between 5-10 seconds
     
         // Stop blinking and zoom on click
         phallus.addEventListener('click', () => {
@@ -100,7 +107,13 @@
                 phallus.style.backgroundImage = `url(${imageUrls[2]})`; // Change sprite after zoom effect
             }, 500); // Change sprite after zoom effect
         });
+    
+        // Start the audio immediately after preloading
+        preloadedAudio.play().catch(err => {
+            console.error('Audio failed to play:', err);
+        });
     </script>
+    
     
     
     
