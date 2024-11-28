@@ -87,8 +87,9 @@ header nav ul li a:hover {
 }
 
 #phallus {
-    background-image: url(images/HomepageMascotSprites/ComputyMouthOpen.png);
-    z-index: 2;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
     transition: transform 2s ease, background-image 0s ease; /* Smooth zoom-in */
 }
 
@@ -98,7 +99,7 @@ header nav ul li a:hover {
 
 #desk {
     background-image: url(images/HomepageBackground/HomepageTableAndwindow.png);
-    z-index: 1;
+    z-index: -1;
 }
 
 /* Tree Layers */
@@ -119,7 +120,7 @@ header nav ul li a:hover {
 
 #tree_right_front {
     background-image: url('images/HomepageBackground/HomepageFrontalTreesRIGHTSIDE.png');
-    z-index: -1;
+    z-index: -2;
 }
 
 .content {

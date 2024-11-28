@@ -15,7 +15,9 @@
         <div class="parallax-layer" id="tree_right_back"></div>
         <div class="parallax-layer" id="tree_right_front"></div>
         <div class="parallax-layer" id="desk"></div>
-        <div class="parallax-layer" id="phallus"></div>
+        <div>
+            <img src="images/HomepageMascotSprites/ComputyMouthOpen.png" id="phallus" alt="">
+        </div>
     </div>
 
     <script>
@@ -44,7 +46,7 @@
 
             // Change the background image after zoom
             setTimeout(() => {
-                phallus.style.backgroundImage = "url('images/ComputyNoScreen.png')";
+                phallus.src= "images/HomepageMascotSprites/ComputyNoScreen.png";
             }, 500); // Adjust delay to match transition duration
         });
     </script>
