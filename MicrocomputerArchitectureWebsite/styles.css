@@ -1,8 +1,8 @@
 
 
 @font-face {
-    font-family: Minecraftia;
-    src: url(fonts/Minecraftia-Regular.ttf);
+    font-family: Pixemex;
+    src: url(fonts/joystix.otf);
 }
 
 /* Basic Reset */
@@ -15,7 +15,7 @@
 
 body {
     font-size: 12px;
-    font-family: Minecraftia, Arial, sans-serif;
+    font-family: Pixemex, Arial, sans-serif;
     line-height: 1.6;
     background: rgb(236, 204, 170);
     height: 100vh;
@@ -24,26 +24,27 @@ body {
 
 /* Header */
 header {
-    background: #54575c;
-    color: rgb(175, 175, 175);
+    background: #54575c00;
+    font-size: 36px;
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-bottom: 1em solid black;
+    justify-content: center;
     padding-top: 2em;
+    position: fixed; /* Keep the navbar fixed at the top */
+    width: 100%;
+    top: 0;
+    z-index: 10; /* Ensure it stays on top of other elements */
 }
 
 header .logo {
     font-size: 1.5em;
     font-weight: bold;
+    color: #6D321D;
 }
 
 header .logo:any-link {
     font-size: 1.5em;
-    font-weight: bold;
-    font-style: normal;
-    color: white;
     text-decoration: none;
 }
 
@@ -53,13 +54,13 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 15px;
+    margin: 0 2vw;
 }
 
 header nav ul li a {
-    color: white;
     text-decoration: none;
     font-weight: bold;
+    color: #6D321D;
 }
 
 header nav ul li a:hover {
@@ -78,6 +79,7 @@ header nav ul li a:hover {
 
 /* Parallax Layers */
 .parallax-layer {
+    min-width: 700px;
     position: absolute;
     width: 100%;   /* Ensure layers take up the full width */
     height: 100%;  /* Ensure layers take up the full height */
@@ -87,20 +89,21 @@ header nav ul li a:hover {
 }
 
 #phallus {
-    background-image: url(images/HomepageMascotSprites/ComputyMouthOpen.png);
+    background-image: url(images/HomepageMascotSprites/spaced/ComputyDefaultBSpng.png);
     z-index: 2;
     transition: transform 2s ease, background-image 0s ease; /* Smooth zoom-in */
 
 }
 
-#phallus.zoomed {
-    transform: scale(5); /* Zoom effect */
+#keyboard {
+    background-image: url(images/HomepageMascotSprites/nospace/ComputyKeyboard.png);
+    z-index: 1;
+    transition: transform 2s ease, background-image 0s ease; /* Smooth zoom-in */
+
 }
 
-#hitbox {
-    width: 670px;
-    height: 700px;
-    background-color: rgba(0, 0, 255, 0.267);
+#phallus.zoomed {
+    transform: translateX(10%) translateY(-35%) scale(6); /* Zoom effect */
 }
 
 #desk {
@@ -129,14 +132,14 @@ header nav ul li a:hover {
     z-index: -1;
 }
 
-.content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centering the content */
-    color: white;
-    text-align: center;
-    z-index: 1; /* Ensure content appears above parallax layers */
+#mute-button {
+    position: fixed;           /* Keep the button in a fixed position on screen */
+    bottom: 20px;              /* Distance from the bottom of the screen */
+    right: 20px;               /* Distance from the right of the screen */
+    width: 80px;               /* Set the desired width */
+    height: auto;              /* Maintain aspect ratio */
+    cursor: pointer;           /* Pointer cursor for interactivity */
+    z-index: 1000;             /* Ensure it stays above other elements */
 }
 
 /* Unique to components */
@@ -144,3 +147,4 @@ header nav ul li a:hover {
     background: repeat url(images/Binary.gif);
     background-size: 60px;
 }
+

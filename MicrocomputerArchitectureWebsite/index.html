@@ -8,46 +8,103 @@
 </head>
 <body>
 
-    <audio src="audio/20150917_Undertale OST： 048 - Alphys.mp3" loop muted autoplay ></audio>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="aboutus.html">About us</a></li>
+            </ul>
+        </nav>
+        <div>
+            <audio id="background-audio" src="audio/20150917_Undertale OST： 006 - Uwa!! So Temperate♫.mp3" loop autoplay></audio>
+            <img id="mute-button" src="images/Mute button/Sound On.png" alt="Mute Button">
+        </div>
+    </header>
+
+
+    
     <div class="parallax-container">
+
         <div class="parallax-layer" id="tree_left_back"></div>
         <div class="parallax-layer" id="tree_left_front"></div>
         <div class="parallax-layer" id="tree_right_back"></div>
         <div class="parallax-layer" id="tree_right_front"></div>
         <div class="parallax-layer" id="desk"></div>
         <div class="parallax-layer" id="phallus"></div>
+        <div class="parallax-layer" id="keyboard"></div>
+
     </div>
 
     <script>
-        // Select the parallax layers
+        const audio = document.getElementById('background-audio');
+        const muteButton = document.getElementById('mute-button');
         const treeLeftBack = document.getElementById('tree_left_back');
         const treeLeftFront = document.getElementById('tree_left_front');
         const treeRightBack = document.getElementById('tree_right_back');
         const treeRightFront = document.getElementById('tree_right_front');
         const phallus = document.getElementById('phallus');
-
-        // Add mousemove event listener
+    
+        // Preload images for smooth transitions
+        const imageUrls = [
+            'images/HomepageMascotSprites/spaced/ComputyEyesClosedBSpng.png',
+            'images/HomepageMascotSprites/spaced/ComputyDefaultBSpng.png',
+            'images/HomepageMascotSprites/spaced/ComputyNoScreenBS.png'
+        ];
+    
+        // Preload each image
+        const preloadedImages = imageUrls.map(url => {
+            const img = new Image();
+            img.src = url;
+            return img;
+        });
+    
+        // Add mousemove event listener for parallax effect
         document.addEventListener('mousemove', (e) => {
             const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
             const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
-
-            // Apply different rates of motion for each layer
+    
             treeLeftBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
             treeLeftFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
             treeRightBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
             treeRightFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
         });
-
-        phallus.addEventListener('click', () => {
-            // Add a zoom class to scale the element
-            phallus.classList.add('zoomed');
-
-            // Change the background image after zoom
+    
+        // Mute button toggle
+        muteButton.addEventListener('click', () => {
+            audio.muted = !audio.muted; // Toggle mute state
+            muteButton.src = audio.muted
+                ? 'images/Mute button/Sound Off.png' // Show sound off image
+                : 'images/Mute button/Sound On.png'; // Show sound on image
+        });
+    
+        // Interval-based "blink" effect
+        const intervalId = setInterval(() => {
+            // Blink to alternate sprite
+            phallus.style.backgroundImage = `url(${imageUrls[0]})`; // Blink with preloaded image
+    
+            // Revert back to the original after a short delay (blink effect)
             setTimeout(() => {
-                phallus.style.backgroundImage = "url('images/ComputyNoScreen.png')";
-            }, 500); // Adjust delay to match transition duration
+                phallus.style.backgroundImage = `url(${imageUrls[1]})`; // Revert back to the original preloaded image
+            }, 150); // Short delay for blink (150ms)
+        }, Math.random() * (8000 - 3000) + 5000); // Random interval between 5-10 seconds
+    
+        // Stop blinking and zoom on click
+        phallus.addEventListener('click', () => {
+            clearInterval(intervalId); // Stop blink interval
+            phallus.classList.add('zoomed');
+    
+            setTimeout(() => {
+                phallus.style.backgroundImage = `url(${imageUrls[2]})`; // Change sprite after zoom effect
+            }, 500); // Change sprite after zoom effect
         });
     </script>
+    
+    
+    
+    
 
 </body>
 </html>
