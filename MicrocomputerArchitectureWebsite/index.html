@@ -15,8 +15,8 @@
         <div class="parallax-layer" id="tree_right_back"></div>
         <div class="parallax-layer" id="tree_right_front"></div>
         <div class="parallax-layer" id="desk"></div>
-        <div class="parallax-layer" id="phallus">
-            <div id="hitbox"></div>
+        <div>
+            <img src="images/HomepageMascotSprites/ComputyMouthOpen.png" id="phallus" alt="">
         </div>
         
     </div>
@@ -35,10 +35,10 @@
             const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
 
             // Apply different rates of motion for each layer
-            treeLeftBack.style.transform = `translate(${x * 5}px, ${y * 5}px)`;
-            treeLeftFront.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
-            treeRightBack.style.transform = `translate(${x * 5}px, ${y * 5}px)`;
-            treeRightFront.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+            treeLeftBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
+            treeLeftFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+            treeRightBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
+            treeRightFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
         });
 
         phallus.addEventListener('click', () => {

@@ -74,29 +74,22 @@ header nav ul li a:hover {
     height: 100vh; /* Ensure it takes up the full height of the viewport */
     width: 100%;
     overflow: hidden;
-
 }
 
 /* Parallax Layers */
 .parallax-layer {
-    display: flex;
     position: absolute;
     width: 100%;   /* Ensure layers take up the full width */
     height: 100%;  /* Ensure layers take up the full height */
     background-size: cover; /* Make sure images cover the entire layer */
     background-position: center; /* Center the background image */
     transition: transform 0.1s ease-out; /* Smooth transitions for movement */
-    justify-content: center;
-    align-content: flex-end;
 }
 
 #phallus {
-    position: fixed;
-    background-image: url(images/HomepageMascotSprites/ComputyDefault.png);
     z-index: 1;
-    top: 40%;
-    background-size: 30%;
-    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
     transition: transform 2s ease, background-image 0s ease; /* Smooth zoom-in */
 
 }
