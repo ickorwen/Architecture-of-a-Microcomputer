@@ -92,15 +92,23 @@ header nav ul li a:hover {
 
 #phallus {
     position: fixed;
-
+    background-image: url(images/HomepageMascotSprites/ComputyDefault.png);
     z-index: 1;
-    scale:5 ;
-    min-width: 70px;
+    top: 40%;
+    background-size: 30%;
+    background-repeat: no-repeat;
     transition: transform 2s ease, background-image 0s ease; /* Smooth zoom-in */
+
 }
 
 #phallus.zoomed {
     transform: scale(5); /* Zoom effect */
+}
+
+#hitbox {
+    width: 670px;
+    height: 700px;
+    background-color: rgba(0, 0, 255, 0.267);
 }
 
 #desk {
