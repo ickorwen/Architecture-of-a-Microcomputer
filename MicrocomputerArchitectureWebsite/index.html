@@ -1,123 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture of Microcomputers</title>
-    <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Architecture of Microcomputers</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="overview.html">Overview</a></li>
-                <li><a href="components.html">Components</a></li>
-                <li><a href="applications.html">Applications</a></li>
-                <li><a href="aboutus.html">About us</a></li>
-            </ul>
-        </nav>
-        <div>
-            <img id="mute-button" src="images/Mute button/Sound On.png" alt="Mute Button">
-        </div>
-    </header>
+	<header>
+		<nav>
+			<div class="hamburger">&#9776;</div>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="overview.html">Overview</a></li>
+				<li><a href="components.html">Components</a></li>
+				<li><a href="applications.html">Applications</a></li>
+				<li><a href="aboutus.html">About us</a></li>
+			</ul>
+		</nav>
+		<div>
+			<img id="mute-button" src="images/Mute button/Sound On.png" alt="Mute Button">
+		</div>
+	</header>
 
+	<div id="popup" class="popup">
+		<div class="popup-content">
+			<p>Click on the computer or the links in the navigation bar to navigate through the site.</p>
+			<button id="popup-ok">OK</button>
+		</div>
+	</div>
+	
+	<div class="parallax-container">
 
-    
-    <div class="parallax-container">
+		<div class="parallax-layer" id="tree_left_back"></div>
+		<div class="parallax-layer" id="tree_left_front"></div>
+		<div class="parallax-layer" id="tree_right_back"></div>
+		<div class="parallax-layer" id="tree_right_front"></div>
+		<div class="parallax-layer" id="desk"></div>
+		<div class="parallax-layer" id="phallus"></div>
+		<div class="parallax-layer" id="keyboard"></div>
 
-        <div class="parallax-layer" id="tree_left_back"></div>
-        <div class="parallax-layer" id="tree_left_front"></div>
-        <div class="parallax-layer" id="tree_right_back"></div>
-        <div class="parallax-layer" id="tree_right_front"></div>
-        <div class="parallax-layer" id="desk"></div>
-        <div class="parallax-layer" id="phallus"></div>
-        <div class="parallax-layer" id="keyboard"></div>
+	</div>
 
-    </div>
+	<script>
+		// Elements
+		const audio = new Audio('audio/20150917_Undertale OST： 006 - Uwa!! So Temperate♫.mp3');
+		const muteButton = document.getElementById('mute-button');
+		const phallus = document.getElementById('phallus');
+		const hamburger = document.querySelector('.hamburger');
+		const navMenu = document.querySelector('nav ul');
+		const componentsLink = document.querySelector('nav ul li a[href="components.html"]');
+		const popup = document.getElementById('popup');
+		const popupOkButton = document.getElementById('popup-ok');
+		
+		// Audio Setup
+		audio.loop = true;
+		audio.preload = 'auto';
+		
+		function playAudio() {
+			audio.play().catch(err => console.error('Audio play error:', err));
+			document.removeEventListener('click', playAudio);
+			document.removeEventListener('keydown', playAudio);
+		}
+	
+		window.addEventListener('load', () => {
+			audio.play().catch(() => {
+				console.log('Autoplay blocked; waiting for user interaction.');
+			});
+		});
+	
+		document.addEventListener('click', playAudio);
+		document.addEventListener('keydown', playAudio);
+		
+		// Mute/Unmute Toggle
+		muteButton.addEventListener('click', () => {
+			audio.muted = !audio.muted;
+			muteButton.src = audio.muted ? 'images/Mute button/Sound Off.png' : 'images/Mute button/Sound On.png';
+		});
+		
+		// Parallax Effect
+		document.addEventListener('mousemove', (e) => {
+			const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+			const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+			const layers = {
+				treeLeftBack: document.getElementById('tree_left_back'),
+				treeLeftFront: document.getElementById('tree_left_front'),
+				treeRightBack: document.getElementById('tree_right_back'),
+				treeRightFront: document.getElementById('tree_right_front')
+			};
+		
+			layers.treeLeftBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
+			layers.treeLeftFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+			layers.treeRightBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
+			layers.treeRightFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+		});
+		
+		// Show Popup Prompt
+		window.addEventListener('load', () => {
+			setTimeout(() => {
+				popup.style.display = 'flex'; // Show the popup
+			}, 500); // Slight delay for a better user experience
+		});
+		
+		// Close Popup
+		popupOkButton.addEventListener('click', () => {
+			popup.style.display = 'none'; // Hide the popup
+		});
+		
+		// Zoom and Redirect Logic
+		function zoomAndRedirect() {
+			phallus.classList.add('zoomed');
 
-    <script>
-        const audio = document.getElementById('background-audio');
-        const muteButton = document.getElementById('mute-button');
-        const treeLeftBack = document.getElementById('tree_left_back');
-        const treeLeftFront = document.getElementById('tree_left_front');
-        const treeRightBack = document.getElementById('tree_right_back');
-        const treeRightFront = document.getElementById('tree_right_front');
-        const phallus = document.getElementById('phallus');
-    
-        // Preload images for smooth transitions
-        const imageUrls = [
-            'images/HomepageMascotSprites/spaced/ComputyEyesClosedBSpng.png',
-            'images/HomepageMascotSprites/spaced/ComputyDefaultBSpng.png',
-            'images/HomepageMascotSprites/spaced/ComputyNoScreenBS.png'
-        ];
-    
-        // Preload each image
-        const preloadedImages = imageUrls.map(url => {
-            const img = new Image();
-            img.src = url;
-            return img;
-        });
-    
-        // Preload audio for smooth playback
-        const preloadedAudio = new Audio('audio/20150917_Undertale OST： 006 - Uwa!! So Temperate♫.mp3');
-        preloadedAudio.loop = true; // Set the audio to loop
-        preloadedAudio.preload = 'auto'; // Preload the audio
-    
-        // Mute button functionality
-        muteButton.addEventListener('click', () => {
-            if (preloadedAudio.muted) {
-                preloadedAudio.muted = false; // Unmute the audio
-                muteButton.src = 'images/Mute button/Sound On.png'; // Change the mute button to "Sound On"
-            } else {
-                preloadedAudio.muted = true; // Mute the audio
-                muteButton.src = 'images/Mute button/Sound Off.png'; // Change the mute button to "Sound Off"
-            }
-        });
-    
-        // Add mousemove event listener for parallax effect
-        document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
-            const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
-    
-            treeLeftBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
-            treeLeftFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
-            treeRightBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
-            treeRightFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
-        });
-    
-        // Interval-based "blink" effect
-        const intervalId = setInterval(() => {
-            // Blink to alternate sprite
-            phallus.style.backgroundImage = `url(${imageUrls[0]})`; // Blink with preloaded image
-    
-            // Revert back to the original after a short delay (blink effect)
-            setTimeout(() => {
-                phallus.style.backgroundImage = `url(${imageUrls[1]})`; // Revert back to the original preloaded image
-            }, 150); // Short delay for blink (150ms)
-        }, Math.random() * (10000 - 5000) + 5000); // Random interval between 5-10 seconds
-    
-        // Stop blinking and zoom on click
-        phallus.addEventListener('click', () => {
-            clearInterval(intervalId); // Stop blink interval
-            phallus.classList.add('zoomed');
-    
-            setTimeout(() => {
-                phallus.style.backgroundImage = `url(${imageUrls[2]})`; // Change sprite after zoom effect
-            }, 500); // Change sprite after zoom effect
-        });
-    
-        // Start the audio immediately after preloading
-        preloadedAudio.play().catch(err => {
-            console.error('Audio failed to play:', err);
-        });
-    </script>
-    
-    
-    
-    
-    
-
+			setTimeout(() => {
+        	phallus.style.backgroundImage = `url(images/HomepageMascotSprites/spaced/ComputyNoScreenBS.png)`; // Change sprite after zoom effect
+    		}, 500); // Change sprite after zoom effect
+			
+			setTimeout(() => {
+				window.location.href = 'components.html';
+			}, 2000); // Adjust delay to match zoom animation timing
+		}
+	
+		phallus.addEventListener('click', zoomAndRedirect);
+		componentsLink.addEventListener('click', (e) => {
+			e.preventDefault(); // Prevent immediate navigation
+			zoomAndRedirect();
+		});
+		
+		// Hamburger Menu Toggle
+		hamburger.addEventListener('click', () => {
+			navMenu.classList.toggle('show');
+		});
+	</script>
+	
 </body>
 </html>

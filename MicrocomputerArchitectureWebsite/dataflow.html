@@ -8,25 +8,28 @@
 </head>
 <body>
     <header>
-        <div class="logo">Microcomputer Architecture</div>
         <nav>
+            <div class="hamburger">&#9776;</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="overview.html">Overview</a></li>
                 <li><a href="components.html">Components</a></li>
-                <li><a href="dataflow.html">Data Flow</a></li>
                 <li><a href="applications.html">Applications</a></li>
-                <li><a href="glossary.html">Glossary</a></li>
+                <li><a href="aboutus.html">About us</a></li>
             </ul>
         </nav>
-        
+        <div>
+            <img id="mute-button" src="images/Mute button/Sound On.png" alt="Mute Button">
+        </div>
     </header>
-    <a href="index.html">back to home</a>
 
-    <!-- Data Flow Section -->
-    <section id="data-flow">
-        <h2>Data Flow in Microcomputers</h2>
-        <p>Understand how data moves within the system through various buses, including data, address, and control buses.</p>
-    </section>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('show'); // Toggle the "show" class
+        });
+    </script>
 </body>
 </html>
