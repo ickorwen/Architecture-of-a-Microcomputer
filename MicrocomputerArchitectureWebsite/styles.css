@@ -36,16 +36,7 @@ header {
     z-index: 10; /* Ensure it stays on top of other elements */
 }
 
-header .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #6D321D;
-}
 
-header .logo:any-link {
-    font-size: 1.5em;
-    text-decoration: none;
-}
 
 header nav ul {
     list-style: none;
@@ -82,7 +73,7 @@ header nav ul li a:hover {
     .hamburger {
         display: block;
         cursor: pointer;
-        font-size: 30px;
+        font-size: 5vh;
         color: #6D321D;
         position: absolute;
         right: 20px;
@@ -94,9 +85,9 @@ header nav ul li a:hover {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Adjust to be below hamburger */
+        top: 10vh; /* Adjust to be below hamburger */
         right: 20px;
-        background: rgba(201, 160, 122, 0.452); /* Optional background for contrast */
+        background: rgba(255, 255, 255, 0.151); /* Optional background for contrast */
         padding: 10px;
         border-radius: 5px;
         z-index: 100;
@@ -109,7 +100,10 @@ header nav ul li a:hover {
     header nav ul li {
         margin: 10px 0;
     }
-  
+    
+    .components-page .hamburger {
+        color: #a4cc44;
+    }
 }
 
 /* Home Section */
@@ -235,3 +229,8 @@ header nav ul li a:hover {
     background-color: #4e5836;
 }
 
+.components-page nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #a4cc44;
+}
