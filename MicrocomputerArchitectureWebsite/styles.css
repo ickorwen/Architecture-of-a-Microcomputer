@@ -3,6 +3,15 @@
     src: url(fonts/joystix.otf);
 }
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -13,7 +22,6 @@
 }
 
 body {
-    
     font-family: Pixemex, Arial, sans-serif;
     line-height: 1.6;
     background: rgb(236, 204, 170);
@@ -55,56 +63,78 @@ header nav ul li a:hover {
     color: #ffde59;
 }
 
-.hamburger {
-    display: none;
+
+
+.menu-toggle:checked + .hamburger {
+    animation: spin 0.5s ease-in-out;
 }
 
 /* Hamburger and Responsive Menu */
 @media (max-width: 768px) {
-    header {
-        justify-content: flex-end;
-    }
-
-    
-    header nav ul li a {
-        font-size: clamp(1rem, 5vw, 12rem);
-    }
 
     .hamburger {
         display: block;
         cursor: pointer;
-        font-size: clamp(3rem ,4vw, 10rem);
+        font-size: clamp(3rem, 4vw, 10rem);
         color: #6D321D;
         position: absolute;
-        right: 2vw;
         top: 1vh;
+        right: 2vw;
         z-index: 101;
     }
 
+    .components-page .hamburger {
+        color: #a4cc44;
+    }
+
+    header {
+        justify-content: flex-end;
+    }
+
     header nav ul {
-        display: none;
+        display: none;  /* Initially hidden */
         flex-direction: column;
-        position: absolute;
-        top: 10vh;
-        right: 2vw;
-        background: rgba(255, 255, 255, 0.15);
-        padding: 0.5em;
-        border-radius: 1em;
+        position: fixed;
+        top: 0;
+        right: 0;   /* Align to the right side */
+        width: 250px;  /* Width of the sidebar */
+        height: 100vh; /* Full screen height */
+        background-color: rgba(255, 255, 255, 0.432); /* Semi-transparent background */
+        padding: 1em;
         z-index: 100;
+        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);  /* Adjust shadow for right-side */
+        transform: translateX(100%); /* Hide off-screen initially on the right side */
+        transition: transform 0.3s ease-in-out; /* Smooth slide-in transition */
     }
 
     header nav ul.show {
         display: flex;
+        transform: translateX(0); /* Slide-in from the right */
     }
 
     header nav ul li {
-        margin: 0.05em 0;
+        margin: 1em 0;
     }
 
-    /* Change Hamburger color on components page */
-    .components-page .hamburger {
-        color: #a4cc44;
+    header nav ul li a {
+        text-decoration: none;
+        color: #6D321D;
+        font-size: clamp(1rem, 5vw, 12rem);
+        transition: color 0.3s ease, font-size 0.3s ease;
     }
+
+    header nav ul li a:hover {
+        color: #ffde59;
+    }
+}
+
+.menu-toggle {
+    display: none; /* Hide the checkbox */
+}
+
+.menu-toggle:checked + label + ul {
+    display: flex;
+    transform: translateX(0); /* Slide-in from the right */
 }
 
 /* Parallax Container */
