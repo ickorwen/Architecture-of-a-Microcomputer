@@ -60,7 +60,7 @@ header nav ul li a:hover {
 }
 
 /* Hamburger and Responsive Menu */
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     header {
         justify-content: flex-end;
     }
@@ -225,10 +225,150 @@ header nav ul li a:hover {
 /* Components Page */
 .components-page {
     background-color: #4e5836;
+    color: #a4cc44;
+}
+
+::-webkit-scrollbar {
+    width: 1vw;  /* Increased the width for better visibility */
+    height: 1vw; /* Set height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a4cc44;  /* Color of the scrollbar thumb */
 }
 
 .components-page nav ul li a {
     color: #a4cc44;
 }
+
+.components-page header {
+    position: sticky;
+    padding-top: 3vw;
+}
+
+/* Layout for the components container */
+.components {
+    
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Links on the left, content on the right */
+    gap: 2em;
+    padding: 2em;
+    margin: 3vw;
+    border: solid;
+}
+
+/* Sidebar for links */
+.component-links {
+    margin: 5vh 5vw;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: static;
+}
+
+/* Styling for the links */
+.component-links h1 a {
+    text-decoration: none;
+    color: inherit;
+    font-size: clamp(1rem, 2vw, 12rem);
+    
+}
+
+.component-links h1 a:hover {
+    color: #ffde59;
+}
+
+/* Content section (text + image) */
+.content {
+    white-space: normal;
+    grid-column: 2;
+    position: relative;
+    display: none; /* Hide all sections by default */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-left: solid;
+    min-height: 50vh;
+    max-height: 80vh;
+    overflow: auto;
+    padding-right: 4vw;
+    padding-left: 2vw;
+    padding-top: 4vh;
+}
+
+/* Text content styling */
+.content p {
+    font-size: clamp(1rem, 1vw, 12rem);
+    order: 2;
+    flex: 1 1 50%;
+    margin-top: 1em;
+}
+
+
+/* Wrapping text around the image */
+.content img {
+    max-width: 30%; /* Control image size */
+    width: 20%;
+    height: auto;
+    object-fit: cover;
+    order: 1; /* Ensures the image comes first */
+    float: right;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+
+/* Show only the targeted content */
+:target {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    clear: both;
+}
+
+/* show cpu if body not present */
+body:not(:has(:target)) #cpu {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    clear: both;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .components {
+        grid-template-columns: 1fr;
+    }
+
+    .component-links {
+        flex-direction: row;
+        overflow-x: auto;
+        
+    }
+
+    .content img {
+        float: none;
+        display: block;
+        margin: 1em auto;
+        max-width: 100%;
+    }
+
+    .content {
+        grid-column: 1;
+        border-left: 0;
+        border-top: solid;
+    }
+
+    .content p {
+        padding-left: 0; /* Remove padding for better alignment on small screens */
+    }
+}
+
+
+
+
+
+
+
 
 
