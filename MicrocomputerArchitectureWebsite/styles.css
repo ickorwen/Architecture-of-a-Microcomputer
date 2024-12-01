@@ -63,7 +63,9 @@ header nav ul li a:hover {
     color: #ffde59;
 }
 
-
+.hamburger {
+    display: none;
+}
 
 .menu-toggle:checked + .hamburger {
     animation: spin 0.5s ease-in-out;
