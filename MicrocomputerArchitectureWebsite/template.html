@@ -27,39 +27,7 @@
     
 
 
-    <script>
-        // Elements
-        const audio = new Audio('audio/20150917_Undertale OST： 006 - Uwa!! So Temperate♫.mp3');
-        const muteButton = document.getElementById('mute-button');
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('nav ul');
-        const componentsLink = document.querySelector('nav ul li a[href="components.html"]');
-        
-        // Audio Setup
-        audio.loop = true;
-        audio.preload = 'auto';
-        
-        function playAudio() {
-            audio.play().catch(err => console.error('Audio play error:', err));
-            document.removeEventListener('click', playAudio);
-            document.removeEventListener('keydown', playAudio);
-        }
-    
-        window.addEventListener('load', () => {
-            audio.play().catch(() => {
-                console.log('Autoplay blocked; waiting for user interaction.');
-            });
-        });
-    
-        document.addEventListener('click', playAudio);
-        document.addEventListener('keydown', playAudio);
-        
-        // Mute/Unmute Toggle
-        muteButton.addEventListener('click', () => {
-            audio.muted = !audio.muted;
-            muteButton.src = audio.muted ? 'images/Mute button/Sound Off.png' : 'images/Mute button/Sound On.png';
-        });
-    </script>
+    <script src="script.js"></script>
     
 </body>
 </html>
