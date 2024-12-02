@@ -108,14 +108,18 @@ header nav ul li a:hover {
         position: fixed;
         top: 0;
         right: 0;   /* Align to the right side */
-        width: 250px;  /* Width of the sidebar */
+        width: 60vw;  /* Width of the sidebar */
         height: 100vh; /* Full screen height */
-        background-color: rgba(255, 255, 255, 0.432); /* Semi-transparent background */
+        background-color: rgba(255, 255, 255, 0.63); /* Semi-transparent background */
         padding: 1em;
         z-index: 100;
         box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);  /* Adjust shadow for right-side */
         transform: translateX(100%); /* Hide off-screen initially on the right side */
         transition: transform 0.3s ease-in-out; /* Smooth slide-in transition */
+    }
+
+    .components-page header nav ul {
+        background-color: rgba(44, 44, 44, 0.603);
     }
 
     header nav ul.show {
@@ -125,6 +129,7 @@ header nav ul li a:hover {
 
     header nav ul li {
         margin: 1em 0;
+        padding: 1em;
     }
 
     header nav ul li a {
@@ -283,7 +288,7 @@ header nav ul li a:hover {
 }
 
 .components-page header {
-    position: sticky;
+    position: static;
     padding-top: 3vw;
 }
 
@@ -297,16 +302,19 @@ header nav ul li a:hover {
     margin:4vh 3vw;
     margin-top: calc(1em + clamp(1rem, 5rem, 12rem)) ;
     border: solid;
+    margin-bottom: 1vh;
+    max-height: 80vh;
 }
 
 /* Sidebar for links */
 .component-links {
-    margin: 5vh 5vw;
+    padding: 3em;
     grid-column: 1;
     display: flex;
     flex-direction: column;
     gap: 1em;
     position: static;
+    overflow:auto
 }
 
 /* Styling for the links */
@@ -332,12 +340,12 @@ header nav ul li a:hover {
     height: 0;
     transition: opacity 0.3s ease-in-out;
     border-left: solid;
-    min-height: 50vh;
     max-height: 80vh;
     overflow: auto;
     padding-right: 4vw;
     padding-left: 2vw;
     padding-top: 4vh;
+    min-height: 30vh;
 }
 
 /* Text content styling */
@@ -386,8 +394,12 @@ body:not(:has(:target)) #cpu {
 
     .component-links {
         flex-direction: row;
+        flex-wrap: wrap;
         overflow-x: auto;
-        
+    }
+
+    .component-links h1 {
+        flex-grow: 1;
     }
 
     .content img {
@@ -406,7 +418,55 @@ body:not(:has(:target)) #cpu {
     .content p {
         padding-left: 0; /* Remove padding for better alignment on small screens */
     }
+
+    .bio {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+    }
+
+    .bio img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .bio div {
+        max-width: 100%;
+    }
 }
+
+.bio {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 2em;
+    margin-top: 3vh;
+    padding: 2em;
+}
+
+.bio p{
+    font-size: clamp(1rem, 2vw, 12rem);
+}
+
+.bio img {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+
+.bio-left {
+    flex-direction: row;
+}
+
+.bio-right {
+    flex-direction: row-reverse;
+    background-color: #6D321D;
+}
+
+.bio div {
+    max-width: 60%;
+}
+
 
 
 
