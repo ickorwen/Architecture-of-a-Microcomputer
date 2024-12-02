@@ -29,6 +29,10 @@ body {
     overflow: hidden;
 }
 
+.about-page {
+    overflow: auto;
+}
+
 /* Header */
 header {
     background: transparent;
@@ -36,11 +40,16 @@ header {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
     z-index: 10;
     font-size: clamp(1rem, 5rem, 12rem); /* Dynamically adjust font size */
+    height: clamp(1rem, 5rem, 12rem);
+}
+
+.home header{
+    position: fixed;
 }
 
 header nav ul {
@@ -260,12 +269,12 @@ header nav ul li a:hover {
     color: #a4cc44;
 }
 
-::-webkit-scrollbar {
+.components-page ::-webkit-scrollbar {
     width: 1vw;  /* Increased the width for better visibility */
     height: 1vw; /* Set height for horizontal scrollbar */
 }
 
-::-webkit-scrollbar-thumb {
+.components-page ::-webkit-scrollbar-thumb {
     background-color: #a4cc44;  /* Color of the scrollbar thumb */
 }
 
@@ -285,7 +294,8 @@ header nav ul li a:hover {
     grid-template-columns: 1fr 3fr; /* Links on the left, content on the right */
     gap: 2em;
     padding: 2em;
-    margin: 3vw;
+    margin:4vh 3vw;
+    margin-top: calc(1em + clamp(1rem, 5rem, 12rem)) ;
     border: solid;
 }
 
@@ -319,6 +329,7 @@ header nav ul li a:hover {
     display: none; /* Hide all sections by default */
     visibility: hidden;
     opacity: 0;
+    height: 0;
     transition: opacity 0.3s ease-in-out;
     border-left: solid;
     min-height: 50vh;
@@ -356,6 +367,7 @@ header nav ul li a:hover {
     visibility: visible;
     opacity: 1;
     clear: both;
+    height: auto;
 }
 
 /* show cpu if body not present */
