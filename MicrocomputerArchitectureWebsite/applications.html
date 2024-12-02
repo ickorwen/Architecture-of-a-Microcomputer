@@ -3,29 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Components</title>
+    <title>Architecture of Microcomputers</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">Microcomputer Architecture</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="iodevices.html">I/O</a></li>
-                <li><a href="components.html">Components</a></li>
-                <li><a href="dataflow.html">Data Flow</a></li>
-                <li><a href="applications.html">Applications</a></li>
-                <li><a href="glossary.html">Glossary</a></li>
-            </ul>
-        </nav>
+	<header>
+		<nav>
+			<input type="checkbox" id="menu-toggle" class="menu-toggle">
+			<label for="menu-toggle" class="hamburger">&#9776;</label>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="iodevices.html">I/O</a></li>
+				<li><a href="components.html">Components</a></li>
+				<li><a href="applications.html">Applications</a></li>
+				<li><a href="aboutus.html">About us</a></li>
+			</ul>
+		</nav>
+		<div>
+			<img id="mute-button" src="images/Mute button/Sound On.png" alt="Mute Button">
+		</div>
+	</header>
+
+    
+
+
+    <script>
+        // Elements
+        const audio = new Audio('audio/20150917_Undertale OST： 006 - Uwa!! So Temperate♫.mp3');
+        const muteButton = document.getElementById('mute-button');
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+        const componentsLink = document.querySelector('nav ul li a[href="components.html"]');
         
-    </header>
-    <!-- Real-World Applications Section -->
-    <section id="applications">
-
-    </section>
-
-    <a href="index.html">back to home</a>
+        // Audio Setup
+        audio.loop = true;
+        audio.preload = 'auto';
+        
+        function playAudio() {
+            audio.play().catch(err => console.error('Audio play error:', err));
+            document.removeEventListener('click', playAudio);
+            document.removeEventListener('keydown', playAudio);
+        }
+    
+        window.addEventListener('load', () => {
+            audio.play().catch(() => {
+                console.log('Autoplay blocked; waiting for user interaction.');
+            });
+        });
+    
+        document.addEventListener('click', playAudio);
+        document.addEventListener('keydown', playAudio);
+        
+        // Mute/Unmute Toggle
+        muteButton.addEventListener('click', () => {
+            audio.muted = !audio.muted;
+            muteButton.src = audio.muted ? 'images/Mute button/Sound Off.png' : 'images/Mute button/Sound On.png';
+        });
+    </script>
+    
 </body>
 </html>

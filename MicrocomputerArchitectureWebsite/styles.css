@@ -289,7 +289,6 @@ header nav ul li a:hover {
 
 .components-page header {
     position: static;
-    padding-top: 3vw;
 }
 
 /* Layout for the components container */
@@ -341,11 +340,13 @@ header nav ul li a:hover {
     transition: opacity 0.3s ease-in-out;
     border-left: solid;
     max-height: 80vh;
+    min-height: 50vh;
     overflow: auto;
     padding-right: 4vw;
     padding-left: 2vw;
     padding-top: 4vh;
     min-height: 30vh;
+    height: auto;
 }
 
 /* Text content styling */
@@ -375,11 +376,11 @@ header nav ul li a:hover {
     visibility: visible;
     opacity: 1;
     clear: both;
-    height: auto;
+
 }
 
 /* show cpu if body not present */
-body:not(:has(:target)) #cpu {
+body:not(:has(:target)) #intro {
     display: block;
     visibility: visible;
     opacity: 1;
