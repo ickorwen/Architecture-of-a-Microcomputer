@@ -92,6 +92,9 @@ header nav ul li a:hover {
     height: 100vh;
     width: 100%;
     overflow: visible;
+    display: flex;
+    justify-items: center;
+    
 }
 
 .parallax-layer {
@@ -108,16 +111,18 @@ header nav ul li a:hover {
     background-image: url(images/HomepageMascotSprites/spaced/ComputyDefaultBSpng.png);
     z-index: 2;
     transition: transform 2s ease, background-image 0s ease;
+
 }
 
 #keyboard {
-    background-image: url(images/HomepageMascotSprites/nospace/ComputyKeyboard.png);
+    background-image: url(images/HomepageMascotSprites/spaced/ComputyKeyboardCentered.png);
     z-index: 1;
     transition: transform 2s ease, background-image 0s ease;
 }
 
 #phallus.zoomed {
-    transform: translateX(10%) translateY(-50%) scale(6);
+    transform: translateX(10%) translateY(-50%) scale(9);
+    background-image: url(images/HomepageMascotSprites/spaced/ComputyNoScreenBS.png);
 
 }
 
@@ -127,8 +132,9 @@ header nav ul li a:hover {
 
 #phallus.starting {
     z-index: 900;
-    transition: all 0s;
-    transform: translateX(10%) translateY(-50%) scale(20);
+    position: relative;
+    transform: translateX(10%) translateY(-50%) scale(9);
+    background-image: url(images/HomepageMascotSprites/spaced/ComputyNoScreenBS.png);
 }
 
 #desk {
@@ -287,6 +293,7 @@ header nav ul li a:hover {
     padding-right: 4vw;
     padding-left: 2vw;
     padding-top: 4vh;
+    padding-bottom: 4vh;
     min-height: 30vh;
     height: auto;
 }
@@ -360,6 +367,7 @@ body:not(:has(:target)) #intro {
 }
 
 .about-page header {
+    background-color:#6d321d23;
     position: relative ;
 }
 
@@ -380,6 +388,7 @@ body:not(:has(:target)) #intro {
     z-index: 9;
     overflow: auto;
     position: relative;
+    background-color:#6d321d23;
 }
 
 .bio {
