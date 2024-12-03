@@ -43,10 +43,12 @@ header {
     z-index: 10;
     font-size: clamp(1rem, 5rem, 12rem); /* Dynamically adjust font size */
     height: clamp(1rem, 5rem, 12rem);
+    padding-bottom: 10vh;
 }
 
 .home header{
     position: fixed;
+
 }
 
 header nav ul {
@@ -369,6 +371,7 @@ body:not(:has(:target)) #intro {
 .about-page header {
     background-color:#6d321d23;
     position: relative ;
+
 }
 
 .about-page header nav {
@@ -416,7 +419,7 @@ body:not(:has(:target)) #intro {
     width: clamp(12px, 30vw, 1080px);
     height: auto;
     object-fit:contain;
-    flex-grow: 1;
+    
 }
 
 .bio-left {
@@ -425,9 +428,22 @@ body:not(:has(:target)) #intro {
 
 .bio-right {
     flex-direction: row-reverse;
-    background-color: #6D321D;
+
     color:#fffaf4;
 }
+
+#kenzi {
+    background-color: #43ffff48;
+}
+
+#ivan {
+    background-color: #6d321d9f;
+}
+
+#xymex {
+    background-color: #462d6e5d;
+}
+
 
 .bio div {
     max-width: 60%;

@@ -159,4 +159,3 @@ busesLink.addEventListener('click', (e) => {
     e.preventDefault();
     zoomAndRedirect('buses.html')
 })
-
