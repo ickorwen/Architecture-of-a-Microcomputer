@@ -3,30 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>About Us - Architecture of Microcomputers</title>
+	<title>Architecture of Microcomputers</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
-<body class="about-page">
+<body class="home" >
+	<div class="parallax-container">
+		<div class="parallax-layer" id="tree_left_back"></div>
+		<div class="parallax-layer" id="tree_left_front"></div>
+		<div class="parallax-layer" id="tree_right_back"></div>
+		<div class="parallax-layer" id="tree_right_front"></div>
+		<div class="parallax-layer" id="desk"></div>
+	</div>
 	<header>
 		<nav>
 			<input type="checkbox" id="menu-toggle" class="menu-toggle">
 			<label for="menu-toggle" class="hamburger">&#9776;</label>
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<li><a href="iodevices.html">I/O</a></li>
 				<li><a href="components.html">Components</a></li>
+				<li><a href="iodevices.html">I/O</a></li>
 				<li><a href="buses.html">Buses</a></li>
 				<li><a href="aboutus.html">About us</a></li>
 			</ul>
 		</nav>
-
-
-
 		<div>
 			<img id="mute-button" src="images/Mute button/Sound On.png" alt="Mute Button">
 		</div>
 	</header>
-	
+
 	<div class="bios">
 		<div class="bio bio-left">
 			<img src="images/testcomponent.png" alt="">
@@ -53,8 +57,6 @@
 		</div>
 	</div>
 	
-
 	<script src="script.js"></script>
-	
 </body>
 </html>

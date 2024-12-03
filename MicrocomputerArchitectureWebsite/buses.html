@@ -28,9 +28,9 @@
 		<aside class="component-links">
 			<h1><a href="components.html#bus"> ↑ Buses</a></h1>
 			<br><br><br>
-			<h1><a href="#data">Data Bus</a></h1>
 			<h1><a href="#address">Address Bus</a></h1>
 			<h1><a href="#control">Control Bus</a></h1>
+			<h1><a href="#data">Data Bus</a></h1>
 			
 		</aside>
 	
@@ -38,7 +38,7 @@
 			<img src="images/components/CPU.png" alt="CPU Image">
 			
 			
-			<p>Components of a Microcomputer</p>
+			<p>Types of Buses</p>
 			<p>Click on any of the components to start reading!</p>
 			
 			
@@ -48,26 +48,24 @@
 			<img src="images/components/CPU.png" alt="CPU Image">
 			
 
-			<p>Central Processing Unit (CPU)</p>
-			<p>The CPU is the center of the microcomputer—everything revolves around it. Dubbed the “brain” of the system, it’s where all the decision-making and number-crunching happens. Whether you’re opening a meme folder or simulating the collapse of a star in astrophysics, the CPU is the one doing the heavy lifting.</p>
-			<p>Today’s CPUs are marvels of engineering, boasting billions of tiny transistors packed onto a chip smaller than your fingernail. These transistors act like microscopic switches, flipping on and off to process data at mind-bending speeds.</p>
-			<p>Fun fact: Early microprocessors like the Intel 4004 (released in 1971) could process just 92,000 instructions per second. Compare that to modern CPUs, which can handle trillions. Talk about glow-ups.</p>
-			
+			<p>Data Bus</p>
+			<p>The data bus carries the actual payload—bits of data—between the CPU, memory, and other components. Think of it like a delivery van transporting instruments, stage props, and gear between shows. The wider the van (or bus), the more it can carry in one trip. Modern systems often use 64-bit data buses, meaning they can haul 64 bits at once, making the trip faster and more efficient.</p>
+			<p>Fun fact: A wider data bus directly impacts performance, much like a bigger van means fewer trips.</p>			
 			
 		</section>
 	
 		<section id="address" class="content hidden">
 			<img src="images/components/RAM.png" alt="RAM Image">
-			<p>RAM is like the temporary workspace of your computer. Imagine you’re baking cookies, and your kitchen counter is where you mix the dough, roll it out, and shape it. RAM is that counter—fast, accessible, and absolutely essential.</p>            
-			<p>But here’s the catch: RAM doesn’t store anything permanently. When you turn off your computer, it’s like cleaning the counter—everything gets wiped. That’s why having more RAM is crucial for multitasking. Open too many tabs in Chrome? RAM’s the one taking the hit (and probably screaming silently in binary).</p>
+			<p>Address Bus</p>
+			<p>The address bus doesn’t carry data but provides the “where” for it. It acts like a GPS system, pointing the CPU to specific memory locations where data or instructions are stored. Without it, the data bus wouldn’t know where to deliver its payload.</p>
+			<p>The size of the address bus determines how much memory the system can access. For example, a 32-bit address bus can point to 4GB of memory, while a 64-bit one can navigate far more.</p>
 		</section>
 	
 		<section id="control" class="content hidden">
 			<img src="images/components/MOTHERBOARD.png" alt="Motherboard Image">
-			<p>The motherboard is like the stage crew, ensuring the CPU, RAM, and storage all communicate harmoniously. It’s a circuit board filled with connectors, slots, and chips that keep everything talking to each other.</p>
-			<p> It’s also where you’ll find some crucial chips like the BIOS/UEFI, which is like your system’s manager. It tells the computer how to boot up and checks that everything’s working fine before handing off control to the operating system.</p>
-			<p> Pro tip: The motherboard also determines what upgrades your computer can handle. So if you’re planning to go full Tony Stark with your rig, pick your motherboard wisely.</p>
-			
+			<p>Control Bus</p>
+			<p>The control bus coordinates and manages the traffic of signals within the system. It handles the “when” and “how,” sending commands like “read,” “write,” or “halt” to different components. Just like a band manager keeps everyone in sync and ensures the right cues are followed, the control bus keeps data flowing smoothly and prevents chaos.</p>			
+			<p>Without the control bus, your system would be like a band playing without a setlist—confused and out of sync.</p>
 		</section>
 	</div>
 	

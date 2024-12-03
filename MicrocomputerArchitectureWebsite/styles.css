@@ -124,6 +124,10 @@ header nav ul li a:hover {
 
 }
 
+#phallus.slide {
+    transform: translate(-100%);
+}
+
 #phallus.starting {
     z-index: 900;
     transition: all 0s;
@@ -254,7 +258,7 @@ header nav ul li a:hover {
     flex-direction: column;
     gap: 1em;
     position: static;
-    overflow:auto
+    overflow: auto;
 }
 
 /* Styling for the links */
@@ -326,6 +330,11 @@ body:not(:has(:target)) #intro {
     visibility: visible;
     opacity: 1;
     clear: both;
+}
+
+.bios {
+    z-index: 30;
+    background-color: white;
 }
 
 .bio {

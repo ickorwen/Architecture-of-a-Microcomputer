@@ -7,6 +7,8 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('nav ul');
 const componentsLink = document.querySelector('nav ul li a[href="components.html"]');
 const iodevicesLink = document.querySelector('nav ul li a[href="iodevices.html"]');
+const busesLink = document.querySelector('nav ul li a[href="buses.html"]')
+const aboutUsLink = document.querySelector('nav ul li a[href="aboutus.html"]')
 const popup = document.getElementById('popup');
 const popupOkButton = document.getElementById('popup-ok');
 
@@ -127,6 +129,19 @@ function zoomAndRedirect(targetUrl) {
     }, 2000);
 }
 
+function slideAndRedirect(targetUrl) {
+    phallus.classList.add('slide');
+
+    setTimeout(() => {
+        phallus.style.backgroundImage = `url(images/HomepageMascotSprites/spaced/ComputyNoScreenBS.png)`;
+    }, 500);
+
+    setTimeout(() => {
+        window.location.href = targetUrl;
+    }, 2000);
+}
+
+
 // Event Listeners for Links
 componentsLink.addEventListener('click', (e) => {
     e.preventDefault();
@@ -138,7 +153,13 @@ iodevicesLink.addEventListener('click', (e) => {
     zoomAndRedirect('iodevices.html');
 });
 
-// Hamburger Menu Toggle
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
+aboutUsLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    slideAndRedirect('aboutus.html');
 });
+
+busesLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    zoomAndRedirect('buses.html')
+})
+
