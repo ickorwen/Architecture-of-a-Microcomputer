@@ -26,8 +26,8 @@ images.forEach(src => {
 // Audio Setup
 audio.loop = true;
 audio.preload = 'auto';
-audio.volume = 0.01;
-startAudio.volume = 0.1;
+audio.volume = 0.3; 
+startAudio.volume = 0.3;
 
 function playAudio() {
     audio.play().catch(err => console.error('Audio play error:', err));

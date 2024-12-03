@@ -177,6 +177,7 @@ header nav ul li a:hover {
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    background-color: #4e5836;
 }
 
 .popup-content {
