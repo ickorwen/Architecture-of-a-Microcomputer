@@ -24,7 +24,7 @@
 body {
     font-family: Pixemex, Arial, sans-serif;
     line-height: 1.6;
-    background: rgb(236, 204, 170);
+    background: #ecccaa;
     height: 100vh;
     overflow: hidden;
 }
@@ -78,70 +78,6 @@ header nav ul li a:hover {
 
 .menu-toggle:checked + .hamburger {
     animation: spin 0.5s ease-in-out;
-}
-
-/* Hamburger and Responsive Menu */
-@media (max-width: 768px) {
-
-    .hamburger {
-        display: block;
-        cursor: pointer;
-        font-size: clamp(3rem, 4vw, 10rem);
-        color: #6D321D;
-        position: absolute;
-        top: 1vh;
-        right: 2vw;
-        z-index: 101;
-    }
-
-    .components-page .hamburger {
-        color: #a4cc44;
-    }
-
-    header {
-        justify-content: flex-end;
-    }
-
-    header nav ul {
-        display: none;  /* Initially hidden */
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;   /* Align to the right side */
-        width: 60vw;  /* Width of the sidebar */
-        height: 100vh; /* Full screen height */
-        background-color: rgba(255, 255, 255, 0.63); /* Semi-transparent background */
-        padding: 1em;
-        z-index: 100;
-        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);  /* Adjust shadow for right-side */
-        transform: translateX(100%); /* Hide off-screen initially on the right side */
-        transition: transform 0.3s ease-in-out; /* Smooth slide-in transition */
-    }
-
-    .components-page header nav ul {
-        background-color: rgba(44, 44, 44, 0.603);
-    }
-
-    header nav ul.show {
-        display: flex;
-        transform: translateX(0); /* Slide-in from the right */
-    }
-
-    header nav ul li {
-        margin: 1em 0;
-        padding: 1em;
-    }
-
-    header nav ul li a {
-        text-decoration: none;
-        color: #6D321D;
-        font-size: clamp(1rem, 5vw, 12rem);
-        transition: color 0.3s ease, font-size 0.3s ease;
-    }
-
-    header nav ul li a:hover {
-        color: #ffde59;
-    }
 }
 
 .menu-toggle {
@@ -391,8 +327,127 @@ body:not(:has(:target)) #intro {
     clear: both;
 }
 
-/* Responsive adjustments */
+.bio {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 2em;
+    margin-top: 3vh;
+    padding: 10vw;
+}
+
+.bio p{
+    font-size: clamp(1rem, 0.75vw, 12rem);
+    flex-grow: 1;
+}
+
+.bio h1 {
+    font-size: clamp(1rem, 2vw, 12rem);
+    flex-grow: 2;
+}
+
+.bio img {
+    width: clamp(12px, 30vw, 1080px);
+    height: auto;
+    object-fit:contain;
+    flex-grow: 1;
+}
+
+.bio-left {
+    flex-direction: row;
+}
+
+.bio-right {
+    flex-direction: row-reverse;
+    background-color: #6D321D;
+    color:#fffaf4;
+}
+
+.bio div {
+    max-width: 60%;
+}
+
+.directory p{
+    font-size: clamp(1rem, 1.5vw, 12rem);
+}
+
+.directory ul {
+    list-style-type: none; /* Ensures bullets are removed */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+}
+
+.directory li {
+    margin-left: 3em; /* Adds the desired left margin */
+}
+
+.directory a {
+    text-decoration: none;
+    color: #a4cc44;
+    font-size: clamp(1rem, 1vw, 12rem);
+}
+
+.directory a:hover {
+    color: #ffde59;
+}
+
+/* Hamburger and Responsive Menu */
 @media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: clamp(3rem, 4vw, 10rem);
+        color: #6D321D;
+        position: absolute;
+        top: 1vh;
+        right: 2vw;
+        z-index: 101;
+    }
+
+    .components-page .hamburger {
+        color: #a4cc44;
+    }
+
+    header {
+        justify-content: flex-end;
+    }
+
+    header nav ul {
+        display: none;  /* Initially hidden */
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;   /* Align to the right side */
+        width: 60vw;  /* Width of the sidebar */
+        height: 100vh; /* Full screen height */
+        background-color: rgba(255, 255, 255, 0.63); /* Semi-transparent background */
+        padding: 1em;
+        z-index: 100;
+        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);  /* Adjust shadow for right-side */
+        transform: translateX(100%); /* Hide off-screen initially on the right side */
+        transition: transform 0.3s ease-in-out; /* Smooth slide-in transition */
+    }
+
+    .components-page header nav ul {
+        background-color: rgba(44, 44, 44, 0.603);
+    }
+
+    header nav ul.show {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    header nav ul li {
+        margin: 1em 0;
+        padding: 1em;
+    }
+
+    header nav ul li a {
+        font-size: clamp(1rem, 5vw, 12rem);
+        transition: color 0.3s ease, font-size 0.3s ease;
+    }
+
     .components {
         grid-template-columns: 1fr;
     }
@@ -421,8 +476,9 @@ body:not(:has(:target)) #intro {
     }
 
     .content p {
-        padding-left: 0; /* Remove padding for better alignment on small screens */
+        padding-left: 0;
     }
+
 
     .bio {
         flex-direction: column !important;
@@ -439,45 +495,3 @@ body:not(:has(:target)) #intro {
         max-width: 100%;
     }
 }
-
-.bio {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    margin-bottom: 2em;
-    margin-top: 3vh;
-    padding: 2em;
-}
-
-.bio p{
-    font-size: clamp(1rem, 2vw, 12rem);
-}
-
-.bio img {
-    width: 150px;
-    height: auto;
-    object-fit: cover;
-}
-
-.bio-left {
-    flex-direction: row;
-}
-
-.bio-right {
-    flex-direction: row-reverse;
-    background-color: #6D321D;
-}
-
-.bio div {
-    max-width: 60%;
-}
-
-
-
-
-
-
-
-
-
-
