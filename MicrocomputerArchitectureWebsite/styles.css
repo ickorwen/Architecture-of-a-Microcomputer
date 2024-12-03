@@ -449,6 +449,16 @@ body:not(:has(:target)) #intro {
     max-width: 60%;
 }
 
+.bios a {
+    text-decoration: none;
+    font-size: inherit;
+    color: inherit;
+}
+
+.bios a:hover{
+    color: #ffde59 ;
+
+}
 
 
 /* Hamburger and Responsive Menu */
