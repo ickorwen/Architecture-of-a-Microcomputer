@@ -29,9 +29,6 @@ body {
     overflow: hidden;
 }
 
-.about-page {
-    overflow: auto;
-}
 
 /* Header */
 header {
@@ -332,12 +329,61 @@ body:not(:has(:target)) #intro {
     clear: both;
 }
 
+.directory p{
+    font-size: clamp(1rem, 1.5vw, 12rem);
+}
+
+.directory ul {
+    list-style-type: none; /* Ensures bullets are removed */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+}
+
+.directory li {
+    margin-left: 3em; /* Adds the desired left margin */
+}
+
+.directory a {
+    text-decoration: none;
+    color: #a4cc44;
+    font-size: clamp(1rem, 1vw, 12rem);
+}
+
+.directory a:hover {
+    color: #ffde59;
+}
+
+/* about page */
+
+.about-page {
+    overflow: auto;
+}
+
+.about-page header {
+    position: relative ;
+}
+
+.about-page header nav {
+    padding: 1em;
+}
+
+.about-page header nav ul{
+    padding: 1em;
+}
+
+.about-page .parallax-container {
+    position: fixed;
+    z-index: 0;
+}
+
 .bios {
-    z-index: 30;
-    background-color: white;
+    z-index: 9;
+    overflow: auto;
+    position: relative;
 }
 
 .bio {
+    z-index: 300;
     display: flex;
     align-items: center;
     gap: 1em;
@@ -347,6 +393,7 @@ body:not(:has(:target)) #intro {
 }
 
 .bio p{
+    z-index: 300;
     font-size: clamp(1rem, 0.75vw, 12rem);
     flex-grow: 1;
 }
@@ -377,29 +424,7 @@ body:not(:has(:target)) #intro {
     max-width: 60%;
 }
 
-.directory p{
-    font-size: clamp(1rem, 1.5vw, 12rem);
-}
 
-.directory ul {
-    list-style-type: none; /* Ensures bullets are removed */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margin */
-}
-
-.directory li {
-    margin-left: 3em; /* Adds the desired left margin */
-}
-
-.directory a {
-    text-decoration: none;
-    color: #a4cc44;
-    font-size: clamp(1rem, 1vw, 12rem);
-}
-
-.directory a:hover {
-    color: #ffde59;
-}
 
 /* Hamburger and Responsive Menu */
 @media (max-width: 768px) {
