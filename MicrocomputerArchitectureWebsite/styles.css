@@ -93,7 +93,7 @@ header nav ul li a:hover {
     position: relative;
     height: 100vh;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
     display: flex;
     justify-items: center;
     
@@ -463,6 +463,12 @@ body:not(:has(:target)) #intro {
 
 /* Hamburger and Responsive Menu */
 @media (max-width: 768px) {
+
+    .home { 
+        overflow: hidden;
+        max-width: 100vw;
+        max-height: 100vh;
+    }
 
     .hamburger {
         display: block;

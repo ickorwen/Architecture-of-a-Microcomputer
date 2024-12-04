@@ -28,7 +28,7 @@ images.forEach(src => {
 // Audio Setup
 bgAudio.loop = true;
 bgAudio.preload = 'auto';
-bgAudio.volume = 0.3; 
+bgAudio.volume = 0.3;
 startAudio.volume = 0.3;
 
 function playAudio() {
