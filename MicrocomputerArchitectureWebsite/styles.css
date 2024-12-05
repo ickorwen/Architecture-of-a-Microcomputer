@@ -223,14 +223,14 @@ header nav ul li a:hover {
     background-color: #4e5836;
     color: #a4cc44;
 }
-
-.components-page ::-webkit-scrollbar {
-    width: 1vw;  /* Increased the width for better visibility */
-    height: 1vw; /* Set height for horizontal scrollbar */
+/* this webkit stuff wont work on firefox btw but it works on all the other browsers so yk */
+.components-page ::-webkit-scrollbar { 
+    width: 1vw;  
+    height: 1vw; 
 }
 
 .components-page ::-webkit-scrollbar-thumb {
-    background-color: #a4cc44;  /* Color of the scrollbar thumb */
+    background-color: #a4cc44; 
 }
 
 .components-page nav ul li a {
@@ -343,13 +343,13 @@ body:not(:has(:target)) #intro {
 }
 
 .directory ul {
-    list-style-type: none; /* Ensures bullets are removed */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margin */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .directory li {
-    margin-left: 3em; /* Adds the desired left margin */
+    margin-left: 3em;
 }
 
 .directory a {
@@ -460,8 +460,7 @@ body:not(:has(:target)) #intro {
 
 }
 
-
-/* Hamburger and Responsive Menu */
+/* This is for tablets and stuff, Im so responsive chat*/
 @media (max-width: 768px) {
 
     .home { 
