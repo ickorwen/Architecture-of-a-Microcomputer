@@ -42,26 +42,27 @@ window.addEventListener('load', () => {
 		console.log('Autoplay blocked; waiting for user interaction.');
 	});
 
-	setTimeout(() => {
-		popup.style.display = 'flex'; // Show the popup
-		phallus.classList.add('starting'); // Add zoom effect on page load
-	}, 500);
-
-	setTimeout(() => {
-		popup.style.display = 'flex'; // Show the popup
-	}, 500);
-
+	// Only run home page specific code if elements exist
+	if (popup && phallus) {
+		setTimeout(() => {
+			popup.style.display = 'flex'; // Show the popup
+			phallus.classList.add('starting'); // Add zoom effect on page load
+		}, 500);
+	}
 });
 
 document.addEventListener('click', playAudio);
 document.addEventListener('keydown', playAudio);
 
 // Mute/Unmute Toggle
-muteButton.addEventListener('click', () => {
-	bgAudio.muted = !bgAudio.muted;
-	muteButton.src = bgAudio.muted 
-		? 'images/Mute button/Sound Off.png' 
-		: 'images/Mute button/Sound On.png';});
+if (muteButton) {
+	muteButton.addEventListener('click', () => {
+		bgAudio.muted = !bgAudio.muted;
+		muteButton.src = bgAudio.muted 
+			? 'images/mute-button/Sound Off.png' 
+			: 'images/mute-button/Sound On.png';
+	});
+}
 
 // Parallax Effect
 document.addEventListener('mousemove', (e) => {
@@ -74,44 +75,53 @@ document.addEventListener('mousemove', (e) => {
 		treeRightFront: document.getElementById('tree_right_front')
 	};
 
-	layers.treeLeftBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
-	layers.treeLeftFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
-	layers.treeRightBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
-	layers.treeRightFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+	// Only apply parallax if layers exist
+	if (layers.treeLeftBack) layers.treeLeftBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
+	if (layers.treeLeftFront) layers.treeLeftFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+	if (layers.treeRightBack) layers.treeRightBack.style.transform = `translate(${x * 4}px, ${y * 4}px)`;
+	if (layers.treeRightFront) layers.treeRightFront.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
 });
 
 // Close Popup and Start Blinking
-popupOkButton.addEventListener('click', () => {
-	popup.style.display = 'none'; // Hide the popup
-	phallus.classList.remove('starting'); // Remove the zoom effect
-	startAudio.play();
-	// Start the blinking effect after the popup is closed
-	blinkEffect();
-});
+if (popupOkButton && popup && phallus) {
+	popupOkButton.addEventListener('click', () => {
+		popup.style.display = 'none'; // Hide the popup
+		phallus.classList.remove('starting'); // Remove the zoom effect
+		startAudio.play();
+		// Start the blinking effect after the popup is closed
+		blinkEffect();
+	});
+}
 
 // Set the initial image (ensure visibility before blink starts)
-phallus.style.backgroundImage = `url(images/HomepageMascotSprites/spaced/ComputyNoScreenBS.png)`;
+if (phallus) {
+	phallus.style.backgroundImage = `url(images/HomepageMascotSprites/spaced/ComputyNoScreenBS.png)`;
+}
 
 // Blinking Animation (Changing Sprite)
 let blinkInterval;
 
 function blinkEffect() {
-	blinkInterval = setInterval(() => {
-		phallus.style.backgroundImage = `url(images/HomepageMascotSprites/spaced/ComputyEyesClosedBS.png)`;
-		setTimeout(() => {
-			phallus.style.backgroundImage = `url(images/HomepageMascotSprites/spaced/ComputyDefaultBS.png)`;
-		}, 300);
-	}, Math.floor(Math.random() * 4000) + 3000); // Random interval for blinking
+	if (phallus) {
+		blinkInterval = setInterval(() => {
+			phallus.style.backgroundImage = `url(images/HomepageMascotSprites/spaced/ComputyEyesClosedBS.png)`;
+			setTimeout(() => {
+				phallus.style.backgroundImage = `url(images/HomepageMascotSprites/spaced/ComputyDefaultBS.png)`;
+			}, 300);
+		}, Math.floor(Math.random() * 4000) + 3000); // Random interval for blinking
+	}
 }
 
 // Stop blinking when phallus is clicked
-phallus.addEventListener('click', (e) => {
-	// Stop blinking
-	clearInterval(blinkInterval);
+if (phallus) {
+	phallus.addEventListener('click', (e) => {
+		// Stop blinking
+		clearInterval(blinkInterval);
 
-	// Zoom and Redirect to the components page
-	zoomAndRedirect('components.html');
-});
+		// Zoom and Redirect to the components page
+		zoomAndRedirect('components.html');
+	});
+}
 
 // Zoom and Redirect Logic
 function zoomAndRedirect(targetUrl) {
@@ -140,22 +150,30 @@ function slideAndRedirect(targetUrl) {
 
 
 // Event Listeners for Links
-componentsLink.addEventListener('click', (e) => {
-	e.preventDefault();
-	zoomAndRedirect('components.html');
-});
+if (componentsLink) {
+	componentsLink.addEventListener('click', (e) => {
+		e.preventDefault();
+		zoomAndRedirect('components.html');
+	});
+}
 
-iodevicesLink.addEventListener('click', (e) => {
-	e.preventDefault();
-	zoomAndRedirect('iodevices.html');
-});
+if (iodevicesLink) {
+	iodevicesLink.addEventListener('click', (e) => {
+		e.preventDefault();
+		zoomAndRedirect('iodevices.html');
+	});
+}
 
-aboutUsLink.addEventListener('click', (e) => {
-	e.preventDefault();
-	slideAndRedirect('aboutus.html');
-});
+if (aboutUsLink) {
+	aboutUsLink.addEventListener('click', (e) => {
+		e.preventDefault();
+		slideAndRedirect('aboutus.html');
+	});
+}
 
-busesLink.addEventListener('click', (e) => {
-	e.preventDefault();
-	zoomAndRedirect('buses.html')
-})
+if (busesLink) {
+	busesLink.addEventListener('click', (e) => {
+		e.preventDefault();
+		zoomAndRedirect('buses.html')
+	});
+}

@@ -110,7 +110,7 @@ header nav ul li a:hover {
 
 /* Background Layers */
 #phallus {
-    background-image: url(images/HomepageMascotSprites/spaced/ComputyDefaultBSpng.png);
+    background-image: url(images/HomepageMascotSprites/spaced/ComputyDefaultBS.png);
     z-index: 2;
     transition: transform 2s ease, background-image 0s ease;
 
